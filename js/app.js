@@ -31,6 +31,8 @@ chooseCorrectEle.addEventListener("click", function() {
     } else {
         // game over screen
         wrongSound.play();
+        updateBestScore(score);
+        //scoreEle.innerHTML = "0";
     }
 });
 
@@ -43,14 +45,25 @@ chooseWrongEle.addEventListener("click", function() {
     } else {
         // game over screen
         wrongSound.play();
+        updateBestScore(score);
+        //scoreEle.innerHTML = "0";
     }
 });
 
 var scoreEle = document.getElementById("score");
+var score = parseInt(scoreEle.innerHTML, 10);
 function scoreIncrement() {
-    var score = parseInt(scoreEle.innerHTML, 10);
     score++;
     scoreEle.innerHTML = score.toString();
+}
+
+localStorage.setItem("bestScore", 0);
+
+function updateBestScore(currentScore) {
+    var bestScore = localStorage.getItem("bestScore");
+    if (currentScore > bestScore) {
+        localStorage.setItem("bestScore", currentScore);
+    }
 }
 
 
