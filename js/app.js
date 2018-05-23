@@ -57,6 +57,11 @@ function scoreIncrement() {
 //function checkRemainingTime() {
 //    start = Date.now(); 
 //}
+var soundOnOffEle = document.getElementById("sound");
+soundOnOffEle.addEventListener("click", function() {
+    correctSound.soundOnOff();
+    wrongSound.soundOnOff();
+});
 
 function Sound(source) {
     this.sound = document.createElement("audio");
@@ -66,6 +71,14 @@ function Sound(source) {
 
 Sound.prototype.play = function() {
     this.sound.play();
+};
+
+Sound.prototype.soundOnOff = function() {
+    if (this.sound.muted == false) {
+        this.sound.muted = true;
+    } else {
+        this.sound.muted = false;
+    }
 };
 
 var correctSound = new Sound('sound/correct.mp3');
