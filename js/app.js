@@ -20,23 +20,29 @@ function generateEquation() {
 
 var chooseCorrectEle = document.getElementById("choose-correct");
 var chooseWrongEle = document.getElementById("choose-wrong");
-
+var lastStart;
 
 chooseCorrectEle.addEventListener("click", function() {
+    lastStart = Date.now();
     if (compareSums == true) {
+        correctSound.play();
         scoreIncrement();
         generateEquation();
     } else {
         // game over screen
+        wrongSound.play();
     }
 });
 
 chooseWrongEle.addEventListener("click", function() {
+    lastStart = Date.now();
     if (compareSums == false) {
+        correctSound.play();
         scoreIncrement();
         generateEquation();
     } else {
         // game over screen
+        wrongSound.play();
     }
 });
 
@@ -46,5 +52,23 @@ function scoreIncrement() {
     score++;
     scoreEle.innerHTML = score.toString();
 }
+
+
+//function checkRemainingTime() {
+//    start = Date.now(); 
+//}
+
+function Sound(source) {
+    this.sound = document.createElement("audio");
+    this.sound.src = source;
+    document.body.appendChild(this.sound);
+}
+
+Sound.prototype.play = function() {
+    this.sound.play();
+};
+
+var correctSound = new Sound('sound/correct.mp3');
+var wrongSound = new Sound('sound/wrong.mp3');
 
 generateEquation();
