@@ -4,6 +4,7 @@
 var gameStartModal = document.getElementById("game-start-modal");
 document.getElementById("game-start-button").addEventListener("click", function() {
     gameStartModal.style.display = "none";
+    loadGame();
 });
 
 /*
@@ -11,9 +12,6 @@ document.getElementById("game-start-button").addEventListener("click", function(
  */
 var score,
     bestScore;
-
-var checkCard = document.getElementById("choice-correct");
-var crossCard = document.getElementById("choice-wrong");
 
 window.onload = function() {
     gameStartModal.style.display = "block";
@@ -27,10 +25,15 @@ window.onload = function() {
         bestScore = 0;
         localStorage.setItem("bestScore", bestScore);
     }
+}
 
+var checkCard = document.getElementById("choice-correct");
+var crossCard = document.getElementById("choice-wrong");
+
+function loadGame() {
     setBackgroundColor();
     generateEquation();
-    
+     
     checkCard.addEventListener("click", function() {
         setTimeout(function() {
             checkCard.setAttribute("class", "card clicked-correct");

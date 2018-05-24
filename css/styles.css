@@ -16,13 +16,14 @@ body {
 
 .container {
     width: 500px;
-    height: 650px;
+    height: 655px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     border-left: 3px solid #FFFFFF;
     border-right: 3px solid #FFFFFF;
-    border-radius: 5px;
+    border-bottom: 3px solid #FFFFFF;
+    border-radius: 8px;
 }
 
 #progress-bar {
@@ -295,8 +296,6 @@ body {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    /*background-color: #2C3E50; /* Fallback color */
-    /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .modal-content {
