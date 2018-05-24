@@ -7,24 +7,17 @@
     <body>
         <div class="container">
             <div id="progress-bar">
-                <div class="bar"></div>
+                <div id="progress-bar-change"></div>
             </div>
 
             <div class="sound-score-panel">
                 <span id="sound">
                     <i class="fas fa-volume-down"></i>
-                    <!--<i class="fas fa-volume-down"></i>-->
                 </span>
                 <span id="score">0</span>
             </div>
             
             <div class="equation" id="equation">
-                <!--
-                <span class="operand-1"></span>
-                <span class="operator"></span>
-                <span class="operand-2"></span>
-                -->
-
             </div>
 
             <div class="choice">
@@ -36,28 +29,54 @@
                 </div>
             </div>
 
-            <!-- The Modal -->
-            <!-- Trigger/Open The Modal -->
-            <button id="myBtn">Open Modal</button>
+            <!-- Game start modal -->
+            <div id="game-start-modal" class="start-modal">
+                <div class="start-modal-content">
+                    <div class="game-name">
+                        <span class="name-span" id="name-freaking">Freaking</span>
+                        <span class="name-span" id="name-math">Math</span>
+                    </div>
 
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-
-              <!-- Modal content -->
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Some text in the Modal..</p>
-              </div>
-
+                    <div class="game-start" id="game-start-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
             </div>
-        
+
+            <!-- Game end modal -->
+            <div id="game-end-modal" class="modal">
+              <div class="modal-content">
+                
+                <div class="game-end">
+                    <div class="game-end-component">
+                        <span id="game-end-message">Game Over</span>
+                    </div>
+
+                    <div class="game-end-component">
+                        <span class="score-text">New</span>
+                        <span id="new-score">0</span>
+                    </div>
+
+                    <div class="game-end-component">
+                        <span class="score-text">Best</span>
+                        <span id="best-score">0</span>
+                    </div>
+                </div>
+
+                <div class="restart-home-panel">
+                    <div class="card" id="restart-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    
+                    <div class="card" id="home-button">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+              </div>
+            </div>
         </div>
 
-
-        <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>-->
-        <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
         <script src="js/app.js"></script>
-    
     </body>
-
 </html>

@@ -2,10 +2,6 @@ html {
     box-sizing: border-box;
 }
 
-* {
-    /*border: solid 1px black;*/
-}
-
 html,
 body {
     width: 100%;
@@ -15,7 +11,6 @@ body {
 }
 
 body {
-    background: green;
     font-family: 'Sunflower', sans-serif;
 }
 
@@ -25,22 +20,20 @@ body {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    border: 3px solid #FFFFFF;
-    border-radius: 10px;
+    border-left: 3px solid #FFFFFF;
+    border-right: 3px solid #FFFFFF;
+    border-radius: 5px;
 }
 
 #progress-bar {
-    width: 90%;
-    margin: 3px auto;
-    height: 4px;
-    /*background-color: #FFFFFF; /*#0A5F44; /* dark green */
+    width: 100%;
+    height: 3px;
 }
 
-#progress-bar div {
+#progress-bar-change {
     height: 100%;
     width: 100%;
     background-color: #FFFFFF;
-    /*background-color: #CBEA00; /* light green */
 }
 
 .sound-score-panel {
@@ -56,10 +49,13 @@ body {
 .equation {
     height: 53%;
     color: #FFFFFF;
-    font-size: 140px;
+    font-size: 120px;
     text-align: center;
 }
 
+/*
+ * Two cards to choose from: check, cross
+ */
 .choice {
     height: 37%;
     margin-left: 5px;
@@ -79,6 +75,24 @@ body {
     align-items: middle;
 }
 
+.choice .card.clicked-correct {
+    background: #3498DB;
+}
+
+.choice .card.clicked-wrong {
+    background: #E74C3C;
+}
+
+.choice .card.judge-right {
+    -webkit-animation: judge-right-tada 1s linear 1;
+    animation: judge-right-tada 1s linear 1;
+}
+
+.choice .card.judge-wrong {
+    -webkit-animation: judge-wrong-shake 1s linear 1;
+    animation: judge-wrong-shake 1s linear 1;
+}
+
 #choice-correct {
     font-size: 200px;
     color: #3498DB;
@@ -89,7 +103,189 @@ body {
     color: #E74C3C;
 }
 
-/* The Modal (background) */
+/*
+ * Animation when judge correctly
+ * Source: https://github.com/daneden/animate.css/blob/master/animate.css
+ */
+@-webkit-keyframes judge-right-tada {
+    from,
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    10%,
+    20% {
+       -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+       transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg); 
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+}
+
+@keyframes match-tada {
+    from,
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    10%,
+    20% {
+       -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+       transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg); 
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+}
+
+/*
+ * Animation when judge wrongly
+ * Source: https://github.com/daneden/animate.css/blob/master/animate.css
+ */
+@-webkit-keyframes judge-wrong-shake {
+    from,
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes unmatch-shake {
+    from,
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+/*
+ * Game start modal
+ */
+.start-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #2C3E50; /* Fallback color */
+}
+
+.start-modal-content {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.game-name {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.name-span {
+    color: #FFFFFF;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 45%;
+}
+
+#name-freaking {
+    font-size: 60px;
+}
+
+#name-math {
+    font-size: 60px;
+}
+
+.game-start {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    background: #ECF0F1;
+    border-radius: 10px;
+    box-shadow: 0px 5px #BDC3C7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-start-button {
+    color: #3498DB;
+    font-size: 35px;
+}
+
+/* 
+ * Game end Modal
+ */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -99,44 +295,70 @@ body {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /*background-color: #2C3E50; /* Fallback color */
+    /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    margin-top: 90px;
 }
 
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.game-end {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 40px;
+    color: #FFFFFF;
+    background: #34495E;
+    border-radius: 10px;
+    box-shadow: 0px 5px #2C3E50;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.game-end-component {
+    text-align: center;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-text {
+    color: #BDC3C7;
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.restart-home-panel {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.restart-home-panel .card {
+    width: 120px;
+    margin-left: 4px;
+    margin-right: 4px;
+    height: 50px;
+    background: #ECF0F1;
+    border-radius: 10px;
+    box-shadow: 0px 5px #BDC3C7;
+    font-size: 30px;
+    color: #3498DB;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
