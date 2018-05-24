@@ -1,12 +1,24 @@
 <html>
     <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Sunflower:700" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <div class="container">
-            <span id="sound">sound</span>
-            <span id="score">0</span>
-            <div id="equation">
+            <div id="progress-bar">
+                <div class="bar"></div>
+            </div>
+
+            <div class="sound-score-panel">
+                <span id="sound">
+                    <i class="fas fa-volume-down"></i>
+                    <!--<i class="fas fa-volume-down"></i>-->
+                </span>
+                <span id="score">0</span>
+            </div>
+            
+            <div class="equation" id="equation">
                 <!--
                 <span class="operand-1"></span>
                 <span class="operator"></span>
@@ -15,13 +27,35 @@
 
             </div>
 
-            <div>
-                <div id="choose-correct">correct</div>
-                <div id="choose-wrong">wrong</div>
+            <div class="choice">
+                <div class="card" id="choice-correct">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="card" id="choice-wrong">
+                    <i class="fas fa-times"></i> 
+                </div>
+            </div>
+
+            <!-- The Modal -->
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn">Open Modal</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+              </div>
+
             </div>
         
         </div>
-        
+
+
+        <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>-->
+        <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
         <script src="js/app.js"></script>
     
     </body>

@@ -2,6 +2,10 @@ html {
     box-sizing: border-box;
 }
 
+* {
+    /*border: solid 1px black;*/
+}
+
 html,
 body {
     width: 100%;
@@ -11,5 +15,128 @@ body {
 }
 
 body {
-    background: red;
+    background: green;
+    font-family: 'Sunflower', sans-serif;
+}
+
+.container {
+    width: 500px;
+    height: 650px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+}
+
+#progress-bar {
+    width: 90%;
+    margin: 3px auto;
+    height: 4px;
+    /*background-color: #FFFFFF; /*#0A5F44; /* dark green */
+}
+
+#progress-bar div {
+    height: 100%;
+    width: 100%;
+    background-color: #FFFFFF;
+    /*background-color: #CBEA00; /* light green */
+}
+
+.sound-score-panel {
+    height: 10%;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #FFFFFF;
+    font-size: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.equation {
+    height: 53%;
+    color: #FFFFFF;
+    font-size: 140px;
+    text-align: center;
+}
+
+.choice {
+    height: 37%;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.choice .card {
+    width: 240px;
+    height: 230px;
+    background: #ECF0F1;
+    border-radius: 10px;
+    box-shadow: 0px 5px #BDC3C7;
+    display: flex;
+    justify-content: center;
+    align-items: middle;
+}
+
+#choice-correct {
+    font-size: 200px;
+    color: #3498DB;
+}
+
+#choice-wrong {
+    font-size: 225px;
+    color: #E74C3C;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
