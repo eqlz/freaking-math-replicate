@@ -1,13 +1,18 @@
-/*
- * Load the page
- */
 var score,
     bestScore;
+
+/* 
+ * Set up event listener for start button in initial game page
+ */
 var gameStartModal = document.getElementById("game-start-modal");
+document.getElementById("game-start-button").addEventListener("click", function() {
+    gameStartModal.style.display = "none";
+});
+
+var checkCard = document.getElementById("choice-correct");
+var crossCard = document.getElementById("choice-wrong");
 
 window.onload = function() {
-    gameStartModal.style.display = "block";
-
     score = 0;
 
     // If localStorage exists, update its value. If not, set up localStorage.
@@ -17,20 +22,7 @@ window.onload = function() {
         bestScore = 0;
         localStorage.setItem("bestScore", bestScore);
     }
-}
 
-/* 
- * Set up event listener for start button in initial game page
- */
-document.getElementById("game-start-button").addEventListener("click", function() {
-    gameStartModal.style.display = "none";
-    loadGame();
-});
-
-var checkCard = document.getElementById("choice-correct");
-var crossCard = document.getElementById("choice-wrong");
-
-function loadGame() {
     setBackgroundColor();
     generateEquation();
      
