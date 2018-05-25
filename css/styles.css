@@ -73,7 +73,7 @@ body {
     box-shadow: 0px 5px #BDC3C7;
     display: flex;
     justify-content: center;
-    align-items: middle;
+    align-items: center;
 }
 
 .choice .card.clicked-correct {
@@ -360,4 +360,91 @@ body {
     justify-content: center;
     align-items: center;
 
+}
+
+/*
+ * Mobile screen
+ */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 310px;
+        height: 550px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sound-score-panel {
+        font-size: 30px;
+    }
+
+    .equation {
+        font-size: 90px;
+    }
+
+    .choice {
+        margin-top: 50px;
+    }
+
+    .choice .card {
+        width: 140px;
+        height: 140px;
+    }
+
+    #choice-correct {
+        font-size: 110px;
+    }
+
+    #choice-wrong {
+        font-size: 120px;
+    }
+
+    /*
+     * Game start modal
+     */
+    .start-modal-content {
+        width: 310px;
+    }
+
+    .game-name {
+        width: 230px;
+    }
+
+    #name-freaking {
+        font-size: 45px;
+    }
+
+    #name-math {
+        font-size: 45px;
+    }
+
+
+    /*
+     * Game end modal
+     */
+    .modal-content {
+        width: 310px;
+        margin-top: 80px;
+    }
+
+    .game-end {
+        width: 230px;
+        height: 150px;
+        font-size: 30px;
+    }
+
+    .score-text {
+        font-size: 15px;
+    }
+
+    .restart-home-panel {
+        width: 230px;
+        height: 70px;
+    }
+
+    .restart-home-panel .card {
+        width: 80px;
+        height: 35px;
+        font-size: 20px;
+    }
 }

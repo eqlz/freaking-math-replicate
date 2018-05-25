@@ -113,8 +113,8 @@ function showGaveOver(outOfTime) {
     }
 
     // Update scores that will be shown in game end modal
-    document.getElementById("new-score").innerHTML = score;
     updateBestScore(score);
+    document.getElementById("new-score").innerHTML = score;
     document.getElementById("best-score").innerHTML = localStorage.getItem("bestScore");
 
     gameEndModal.style.display = "block";
@@ -143,21 +143,21 @@ document.getElementById("home-button").addEventListener("click", function() {
 /*
  * Generate equation for a user to judge
  */
-var operands = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-var deviation = [-1, 0, 0, 1];
 var compareSums;
 
 function generateEquation() {
-   var operand1 = operands[Math.floor(Math.random() * operands.length)];
-   var operand2 = operands[Math.floor(Math.random() * operands.length)];
-   var correctSum = operand1 + operand2;
+    var operands = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    var deviation = [-1, 0, 0, 1];
+    var operand1 = operands[Math.floor(Math.random() * operands.length)];
+    var operand2 = operands[Math.floor(Math.random() * operands.length)];
+    var correctSum = operand1 + operand2;
 
-   var shownSum = correctSum + deviation[Math.floor(Math.random() * deviation.length)];
+    var shownSum = correctSum + deviation[Math.floor(Math.random() * deviation.length)];
 
-   var resultString = operand1.toString() + " + " + operand2.toString() + "<br> = " + shownSum.toString();
+    var resultString = operand1.toString() + " + " + operand2.toString() + "<br> = " + shownSum.toString();
 
-   document.getElementById('equation').innerHTML = resultString;
-   compareSums = (correctSum == shownSum);
+    document.getElementById('equation').innerHTML = resultString;
+    compareSums = (correctSum == shownSum);
 }
 
 /*
