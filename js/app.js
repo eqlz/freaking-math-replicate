@@ -7,6 +7,12 @@ var score,
 var gameStartModal = document.getElementById("game-start-modal");
 document.getElementById("game-start-button").addEventListener("click", function() {
     gameStartModal.style.display = "none";
+
+    score = 0
+    document.getElementById("score").innerHTML = score;
+    
+    generateEquation();
+    progressBar.style.width = "100%";
 });
 
 var checkCard = document.getElementById("choice-correct");
@@ -131,12 +137,7 @@ document.getElementById("restart-button").addEventListener("click", function() {
  */
 document.getElementById("home-button").addEventListener("click", function() {
     gameEndModal.style.display = "none";
-
-    score = 0
-    document.getElementById("score").innerHTML = score;
-    generateEquation();
-
-    gameStartModal.style.display = "block";
+    gameStartModal.style.display = "block";   
 });
 
 /*
@@ -191,7 +192,6 @@ function runCountDown() {
         wrongSound.play();
 
         checkCard.setAttribute("class", "card judge-wrong");
-        console.log("time out shake");
         crossCard.setAttribute("class", "card judge-wrong");
 
         showGaveOver(true);
