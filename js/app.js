@@ -1,17 +1,9 @@
-/* 
- * Set up event listener for start button in initial game page
- */
-var gameStartModal = document.getElementById("game-start-modal");
-document.getElementById("game-start-button").addEventListener("click", function() {
-    gameStartModal.style.display = "none";
-    loadGame();
-});
-
 /*
  * Load the page
  */
 var score,
     bestScore;
+var gameStartModal = document.getElementById("game-start-modal");
 
 window.onload = function() {
     gameStartModal.style.display = "block";
@@ -26,6 +18,14 @@ window.onload = function() {
         localStorage.setItem("bestScore", bestScore);
     }
 }
+
+/* 
+ * Set up event listener for start button in initial game page
+ */
+document.getElementById("game-start-button").addEventListener("click", function() {
+    gameStartModal.style.display = "none";
+    loadGame();
+});
 
 var checkCard = document.getElementById("choice-correct");
 var crossCard = document.getElementById("choice-wrong");
