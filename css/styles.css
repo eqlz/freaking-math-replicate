@@ -368,7 +368,7 @@ body {
 @media only screen and (max-width: 600px) {
     .container {
         width: 310px;
-        height: 550px;
+        height: 425px;
         margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
@@ -383,12 +383,14 @@ body {
     }
 
     .choice {
-        margin-top: 50px;
+        margin-top: 5px;
     }
 
     .choice .card {
         width: 140px;
         height: 140px;
+        margin-left: 2px;
+        margin-right: 2px;
     }
 
     #choice-correct {
@@ -424,7 +426,7 @@ body {
      */
     .modal-content {
         width: 310px;
-        margin-top: 80px;
+        margin-top: 40px;
     }
 
     .game-end {
