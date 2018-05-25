@@ -103,6 +103,11 @@ function showGaveOver(outOfTime) {
     clearTimeout(timeOut);
     clearInterval(progressTimer);
 
+    setTimeout(function() {
+        checkCard.setAttribute("class", "card");
+        crossCard.setAttribute("class", "card");
+    }, 1100);
+
     if (outOfTime) {
         document.getElementById("game-end-message").innerHTML = "Time Out";
     } else {
@@ -146,7 +151,7 @@ document.getElementById("home-button").addEventListener("click", function() {
  * Generate equation for a user to judge
  */
 var operands = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-var deviation = [-1, 0, 0, 0];
+var deviation = [-1, 0, 0, 1];
 var compareSums;
 
 function generateEquation() {
@@ -188,16 +193,17 @@ function runCountDown() {
                 progressBar.style.width = "100%";
                 break;
         }
-    }, 500);
+    }, 400);
 
     timeOut = setTimeout(function() {
         wrongSound.play();
 
         checkCard.setAttribute("class", "card judge-wrong");
+        console.log("time out shake");
         crossCard.setAttribute("class", "card judge-wrong");
 
         showGaveOver(true);
-    }, 1500);
+    }, 1200);
 }
 
 /*
