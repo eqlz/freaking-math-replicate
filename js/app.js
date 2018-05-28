@@ -89,6 +89,7 @@ function nextGame() {
     clearInterval(progressTimer);
     incrementScore();
     generateEquation();
+    setBackgroundColor();
     runCountDown();
 }
 
